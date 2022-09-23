@@ -1,0 +1,18 @@
+<mat-tab-group>
+  <ng-container *ngFor="let tab of allTabs">
+    <mat-tab label="{{ tab.name }}">
+      <ng-container [ngTemplateOutlet]="tab.template"></ng-container>
+    </mat-tab>
+  </ng-container>
+</mat-tab-group>
+<ng-content></ng-content>
+
+<ng-template #Shop>
+  <form>name: <input type="text" /></form>
+</ng-template>
+<ng-template #Notification>
+  <h1>list of notification</h1>
+</ng-template>
+<ng-template #Review>
+  <h1>list of review</h1>
+</ng-template>
