@@ -1,6 +1,6 @@
-<mat-tab-group>
+<mat-tab-group [selectedIndex]="index">
   <ng-container *ngFor="let tab of allTabs">
-    <mat-tab label="{{ tab.name }}" [selectedIndex]="index">
+    <mat-tab label="{{ tab.name }}">
       <ng-container [ngTemplateOutlet]="tab.template"></ng-container>
     </mat-tab>
   </ng-container>

@@ -1,12 +1,16 @@
-import { Component, ViewChild, TemplateRef } from '@angular/core';
+import {
+  Component,
+  ViewChild,
+  TemplateRef,
+  AfterViewInit,
+} from '@angular/core';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent  {
-  
+export class AppComponent implements AfterViewInit {
   @ViewChild('Shop')
   Shop: TemplateRef<any>;
 
@@ -17,13 +21,19 @@ export class AppComponent  {
   Review: TemplateRef<any>;
 
   allTabs: any;
+  index = 0;
 
-  ngOnInit(){
+  ngOnInit() {
     this.allTabs = [
-      {name: 'Shop', template: this.Shop},
-      {name: 'Notification', template: this.Notification},
-      {name: 'Review', template: this.Review}
-  ];
+      { name: 'Shop', template: this.Shop },
+      { name: 'Notification', template: this.Notification },
+      { name: 'Review', template: this.Review },
+    ];
   }
 
+  ngAfterViewInit() {
+    window.setTimeout(() => {
+      this.index = 1;
+    }, 300);
+  }
 }
